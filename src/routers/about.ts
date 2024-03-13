@@ -3,7 +3,8 @@ import { addRoutes } from '@/routers/index'
 addRoutes([
 	{
 		path: '/about',
-		name: 'about',
-		component: () => import('@/views/AboutView.vue'),
+		name: 'about-index',
+		component: () => import('@/modules/about/views/AboutIndex.vue'),
+		meta: { title: 'Om oss' },
 	},
 ])

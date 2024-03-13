@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-    #app {
-        @apply min-h-screen bg-gray-100;
+    html {
+        font-size: 14px;
     }
 
-    #app-container {
-        @apply flex;
-        min-height: calc(100vh - 4rem);
+    body {
+        @apply bg-gray-100;
+    }
+
+    main {
+        @apply p-4;
     }
 }
