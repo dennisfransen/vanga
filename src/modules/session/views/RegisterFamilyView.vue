@@ -1,55 +1,17 @@
 <template>
 	<main class="grid min-h-screen place-items-center bg-white">
 		<form class="grid w-[1000px] grid-cols-2 gap-x-10">
-			<section class="space-y-6">
+			<section class="col-span-2 mb-12">
 				<div class="prose">
-					<h2>Kul att du vill bli en av oss!</h2>
+					<h2>Lägg till familjemedlem</h2>
 					<p>
-						Fyll i formuläret för att välja medlemskap och bli en del av ridsporten på
-						nolltid.
+						Om du inte har några familjemedlemmar eller inte vet vilka familjemedlemmar
+						du vill registrera så kan du göra det senare under "Mina sidor".
 					</p>
 				</div>
-
-				<img src="@/assets/register-art.svg" alt="" width="80%" />
 			</section>
 
 			<section class="space-y-6">
-				<div>
-					<label for="sport" class="block text-sm font-medium leading-6 text-gray-900">
-						Idrott *
-					</label>
-					<div class="mt-2">
-						<select
-							id="sport"
-							name="sport"
-							autocomplete="sport-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						>
-							<option>Ridning</option>
-							<option>Fotboll</option>
-							<option>Hockey</option>
-						</select>
-					</div>
-				</div>
-
-				<div>
-					<label for="club" class="block text-sm font-medium leading-6 text-gray-900">
-						Klubb *
-					</label>
-					<div class="mt-2">
-						<select
-							id="club"
-							name="club"
-							autocomplete="club-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						>
-							<option>Norra Älvsborgs Ryttarklubb</option>
-							<option>Lilla Edet Ridklubb</option>
-							<option>Trollhättans Fältridklubb</option>
-						</select>
-					</div>
-				</div>
-
 				<div>
 					<label
 						for="first-name"
@@ -102,7 +64,7 @@
 
 				<div>
 					<label for="email" class="block text-sm font-medium leading-6 text-gray-900">
-						E-postadress *
+						E-postadress
 					</label>
 					<div class="mt-2">
 						<input
@@ -114,10 +76,64 @@
 						/>
 					</div>
 				</div>
+
+				<button
+					type="submit"
+					class="w-full rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+				>
+					Lägg till
+				</button>
+			</section>
+
+			<section>
+				<table>
+					<thead>
+						<tr>
+							<th>Namn</th>
+							<th>Personnummer</th>
+							<th>E-postadress</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Dennis Fransén</td>
+							<td>921116-0123</td>
+							<td>dennis.fransen@example.com</td>
+							<td>
+								<button type="button">
+									<span class="material-symbols-rounded">edit</span>
+								</button>
+								<button type="button">
+									<span class="material-symbols-rounded">delete</span>
+								</button>
+							</td>
+						</tr>
+						<tr>
+							<td>Rickard Fransén</td>
+							<td>850229-0123</td>
+							<td>rickard.fransen@example.com</td>
+							<td>
+								<button type="button">
+									<span class="material-symbols-rounded">edit</span>
+								</button>
+								<button type="button">
+									<span class="material-symbols-rounded">delete</span>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</section>
 
 			<section class="col-span-2 mt-10">
 				<div class="flex items-center justify-end gap-x-6">
+					<router-link
+						to="/register/addition"
+						class="text-sm font-semibold leading-6 text-gray-900"
+					>
+						Hoppa över
+					</router-link>
 					<button
 						type="submit"
 						class="rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
@@ -130,4 +146,14 @@
 	</main>
 </template>
 
+<style scoped>
+table {
+	width: 100%;
+	/*background-color: #feeeee;*/
+}
+
+th {
+	text-align: start;
+}
+</style>
 <script setup lang="ts"></script>

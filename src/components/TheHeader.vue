@@ -13,7 +13,7 @@
 
 			<nav class="flex items-center gap-6">
 				<router-link
-					to="/s/login"
+					to="/register"
 					class="flex items-center gap-1 rounded-md bg-blue-100 py-2 pl-5 pr-3 font-semibold text-blue-500"
 				>
 					<span>Logga in</span>
