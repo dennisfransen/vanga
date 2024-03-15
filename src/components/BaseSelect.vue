@@ -31,7 +31,7 @@ defineProps<{
 	</div>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 label {
 	@apply block text-sm font-medium leading-6 text-gray-900;
 }

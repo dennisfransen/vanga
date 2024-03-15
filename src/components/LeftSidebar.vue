@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
 	<aside class="flex min-h-screen min-w-72 flex-col bg-white">
 		<div class="flex h-20 items-center py-4 pl-8 pr-4 text-lg font-bold tracking-wider">
@@ -83,7 +85,7 @@
 	</aside>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .link {
 	@apply flex items-center gap-3;
 	@apply rounded-md p-2 text-gray-500;
@@ -101,4 +103,3 @@
 	/*@apply bg-blue-100;*/
 }
 </style>
-<script setup lang="ts"></script>
