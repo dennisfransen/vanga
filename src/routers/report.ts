@@ -4,7 +4,11 @@ addRoutes([
 	{
 		path: '/report',
 		name: 'report-index',
-		component: () => import('@/modules/report/views/ReportIndex.vue'),
+		components: {
+			default: () => import('@/modules/report/views/ReportIndex.vue'),
+			MainMenu: () => import('@/components/MainMenu.vue'),
+			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+		},
 		meta: { title: 'Rapporter' },
 	},
 ])

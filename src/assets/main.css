@@ -4,7 +4,7 @@
 
 @layer base {
     html {
-        font-size: 14px;
+        @apply text-[14px]
     }
 
     body {
@@ -13,5 +13,13 @@
 
     main {
         @apply p-4;
+    }
+
+    table {
+        @apply w-full
+    }
+
+    th {
+        @apply text-left;
     }
 }

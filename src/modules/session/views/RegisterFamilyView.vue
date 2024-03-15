@@ -1,6 +1,15 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function onSubmit() {
+	router.push({ name: 'register-addition-view' })
+}
+</script>
+
 <template>
 	<main class="grid min-h-screen place-items-center bg-white">
-		<form class="grid w-[1000px] grid-cols-2 gap-x-10">
+		<form class="grid w-[1000px] grid-cols-2 gap-x-10" @submit.prevent="onSubmit">
 			<section class="col-span-2 mb-12">
 				<div class="prose">
 					<h2>Lägg till familjemedlem</h2>
@@ -12,70 +21,36 @@
 			</section>
 
 			<section class="space-y-6">
-				<div>
-					<label
-						for="first-name"
-						class="block text-sm font-medium leading-6 text-gray-900"
-					>
-						Förnamn *
-					</label>
-					<div class="mt-2">
-						<input
-							type="text"
-							name="first-name"
-							id="first-name"
-							autocomplete="given-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
-
-				<div>
-					<label
-						for="last-name"
-						class="block text-sm font-medium leading-6 text-gray-900"
-					>
-						Efternamn *
-					</label>
-					<div class="mt-2">
-						<input
-							type="text"
-							name="last-name"
-							id="last-name"
-							autocomplete="family-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
-
-				<div>
-					<label for="ssn" class="block text-sm font-medium leading-6 text-gray-900">
-						Personnummer *
-					</label>
-					<div class="mt-2">
-						<input
-							type="text"
-							name="ssn"
-							id="ssn"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
-
-				<div>
-					<label for="email" class="block text-sm font-medium leading-6 text-gray-900">
-						E-postadress
-					</label>
-					<div class="mt-2">
-						<input
-							id="email"
-							name="email"
-							type="email"
-							autocomplete="email"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
+				<BaseInput
+					id="first-name"
+					type="text"
+					label="Förnamn"
+					required
+					placeholder="Förnamn"
+					autocomplete="given-name"
+				/>
+				<BaseInput
+					id="last-name"
+					type="text"
+					label="Efternamn"
+					required
+					placeholder="Efternamn"
+					autocomplete="family-name"
+				/>
+				<BaseInput
+					id="ssn"
+					type="text"
+					label="Personnummer"
+					placeholder="Personnummer"
+					required
+				/>
+				<BaseInput
+					id="email"
+					type="email"
+					label="E-postadress"
+					placeholder="E-postadress"
+					autocomplete="email"
+				/>
 
 				<button
 					type="submit"
@@ -145,15 +120,3 @@
 		</form>
 	</main>
 </template>
-
-<style scoped>
-table {
-	width: 100%;
-	/*background-color: #feeeee;*/
-}
-
-th {
-	text-align: start;
-}
-</style>
-<script setup lang="ts"></script>

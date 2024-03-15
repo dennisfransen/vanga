@@ -4,7 +4,11 @@ addRoutes([
 	{
 		path: '/profile',
 		name: 'profile-index',
-		component: () => import('@/modules/profile/views/ProfileIndex.vue'),
+		components: {
+			default: () => import('@/modules/profile/views/ProfileIndex.vue'),
+			MainMenu: () => import('@/components/MainMenu.vue'),
+			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+		},
 		meta: { title: 'Mina Sidor' },
 	},
 ])

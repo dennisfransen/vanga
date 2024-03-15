@@ -4,7 +4,11 @@ addRoutes([
 	{
 		path: '/member',
 		name: 'member-index',
-		component: () => import('@/modules/member/views/MemberIndex.vue'),
+		components: {
+			default: () => import('@/modules/member/views/MemberIndex.vue'),
+			MainMenu: () => import('@/components/MainMenu.vue'),
+			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+		},
 		meta: { title: 'Medlemmar' },
 	},
 ])

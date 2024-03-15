@@ -1,18 +1,10 @@
-<script setup lang="ts">
-import TheMainMenu from '@/components/TheMainMenu.vue'
-import TheHeader from '@/components/TheHeader.vue'
-import { ref } from 'vue'
-
-const isLoggedIn = ref(true)
-</script>
-
 <template>
 	<div class="flex">
-		<TheMainMenu v-if="isLoggedIn" />
+		<router-view name="LeftSidebar" />
 
 		<div class="flex-grow">
-			<TheHeader v-if="isLoggedIn" />
-			<RouterView />
+			<router-view name="MainMenu" />
+			<router-view />
 		</div>
 	</div>
 </template>

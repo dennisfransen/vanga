@@ -4,7 +4,11 @@ addRoutes([
 	{
 		path: '/setting',
 		name: 'setting-index',
-		component: () => import('@/modules/setting/views/SettingIndex.vue'),
+		components: {
+			default: () => import('@/modules/setting/views/SettingIndex.vue'),
+			MainMenu: () => import('@/components/MainMenu.vue'),
+			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+		},
 		meta: { title: 'Inställningar' },
 	},
 ])

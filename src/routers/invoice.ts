@@ -4,7 +4,11 @@ addRoutes([
 	{
 		path: '/invoice',
 		name: 'invoice-index',
-		component: () => import('@/modules/invoice/views/InvoiceIndex.vue'),
+		components: {
+			default: () => import('@/modules/invoice/views/InvoiceIndex.vue'),
+			MainMenu: () => import('@/components/MainMenu.vue'),
+			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+		},
 		meta: { title: 'Fakturering' },
 	},
 ])

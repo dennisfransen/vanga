@@ -1,6 +1,39 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+type Sport = {
+	id: string
+	name: string
+}
+
+type Club = {
+	id: string
+	name: string
+	slug: string
+}
+
+const sportOptions = ref<Sport[]>([
+	{ id: '1', name: 'Ridsport' },
+	{ id: '2', name: 'Fotboll' },
+	{ id: '3', name: 'Hockey' },
+])
+
+const clubOptions = ref<Club[]>([
+	{ id: '1', name: 'Norra Älvsborgs Ryttarklubb', slug: 'NÄRK' },
+	{ id: '2', name: 'Lilla Edet Ridskola', slug: 'LERK' },
+])
+
+function onSubmit() {
+	router.push({ name: 'register-family-view' })
+}
+</script>
+
 <template>
 	<main class="grid min-h-screen place-items-center bg-white">
-		<form class="grid w-[1000px] grid-cols-2 gap-x-10">
+		<form class="grid w-[1000px] grid-cols-2 gap-x-10" @submit.prevent="onSubmit">
 			<section class="space-y-6">
 				<div class="prose">
 					<h2>Kul att du vill bli en av oss!</h2>
@@ -10,110 +43,59 @@
 					</p>
 				</div>
 
-				<img src="@/assets/register-art.svg" alt="" width="80%" />
+				<img src="@/assets/register-art.svg" alt="Abstrakta föremål" width="80%" />
 			</section>
 
 			<section class="space-y-6">
-				<div>
-					<label for="sport" class="block text-sm font-medium leading-6 text-gray-900">
-						Idrott *
-					</label>
-					<div class="mt-2">
-						<select
-							id="sport"
-							name="sport"
-							autocomplete="sport-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						>
-							<option>Ridning</option>
-							<option>Fotboll</option>
-							<option>Hockey</option>
-						</select>
-					</div>
-				</div>
-
-				<div>
-					<label for="club" class="block text-sm font-medium leading-6 text-gray-900">
-						Klubb *
-					</label>
-					<div class="mt-2">
-						<select
-							id="club"
-							name="club"
-							autocomplete="club-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						>
-							<option>Norra Älvsborgs Ryttarklubb</option>
-							<option>Lilla Edet Ridklubb</option>
-							<option>Trollhättans Fältridklubb</option>
-						</select>
-					</div>
-				</div>
-
-				<div>
-					<label
-						for="first-name"
-						class="block text-sm font-medium leading-6 text-gray-900"
-					>
-						Förnamn *
-					</label>
-					<div class="mt-2">
-						<input
-							type="text"
-							name="first-name"
-							id="first-name"
-							autocomplete="given-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
-
-				<div>
-					<label
-						for="last-name"
-						class="block text-sm font-medium leading-6 text-gray-900"
-					>
-						Efternamn *
-					</label>
-					<div class="mt-2">
-						<input
-							type="text"
-							name="last-name"
-							id="last-name"
-							autocomplete="family-name"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
-
-				<div>
-					<label for="ssn" class="block text-sm font-medium leading-6 text-gray-900">
-						Personnummer *
-					</label>
-					<div class="mt-2">
-						<input
-							type="text"
-							name="ssn"
-							id="ssn"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
-
-				<div>
-					<label for="email" class="block text-sm font-medium leading-6 text-gray-900">
-						E-postadress *
-					</label>
-					<div class="mt-2">
-						<input
-							id="email"
-							name="email"
-							type="email"
-							autocomplete="email"
-							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-						/>
-					</div>
-				</div>
+				<BaseSelect
+					id="sport"
+					loop-key="id"
+					option-key="name"
+					:options="sportOptions"
+					label="Idrott"
+					placeholder="Välj idrott"
+					required
+				/>
+				<BaseSelect
+					id="club"
+					loop-key="id"
+					option-key="name"
+					:options="clubOptions"
+					label="Klubb"
+					placeholder="Välj klubb"
+					required
+				/>
+				<BaseInput
+					id="first-name"
+					type="text"
+					label="Förnamn"
+					required
+					placeholder="Förnamn"
+					autocomplete="given-name"
+				/>
+				<BaseInput
+					id="last-name"
+					type="text"
+					label="Efternamn"
+					required
+					placeholder="Efternamn"
+					autocomplete="family-name"
+				/>
+				<BaseInput
+					id="ssn"
+					type="text"
+					label="Personnummer"
+					placeholder="Personnummer"
+					required
+				/>
+				<BaseInput
+					id="email"
+					type="email"
+					label="E-postadress"
+					required
+					placeholder="E-postadress"
+					autocomplete="email"
+				/>
 			</section>
 
 			<section class="col-span-2 mt-10">
@@ -129,5 +111,3 @@
 		</form>
 	</main>
 </template>
-
-<script setup lang="ts"></script>

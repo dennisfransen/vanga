@@ -4,7 +4,11 @@ addRoutes([
 	{
 		path: '/dashboard',
 		name: 'dashboard-index',
-		component: () => import('@/modules/dashboard/views/DashboardIndex.vue'),
+		components: {
+			default: () => import('@/modules/dashboard/views/DashboardIndex.vue'),
+			MainMenu: () => import('@/components/MainMenu.vue'),
+			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
+		},
 		meta: { title: 'Översikt' },
 	},
 ])

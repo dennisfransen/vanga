@@ -1,6 +1,6 @@
 <template>
 	<main class="grid min-h-screen place-items-center bg-white">
-		<form class="grid w-[1000px] grid-cols-2 gap-x-10">
+		<form class="grid w-[1000px] grid-cols-2 gap-x-10" @submit.prevent="onSubmit">
 			<section class="col-span-2 mb-12">
 				<div class="prose">
 					<h2>Välj medlemskap och tillägg</h2>
@@ -35,4 +35,11 @@
 	</main>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+function onSubmit() {
+	router.push({ name: 'home-index' })
+}
+</script>
