@@ -10,41 +10,43 @@ import {
 </script>
 
 <template>
-	<aside class="flex min-h-screen min-w-[4.5rem] flex-col space-y-6 bg-white">
-		<section class="grid h-[4.5rem] place-items-center">
-			<router-link to="/" class="inline-block min-w-10 text-center font-black">
-				<span class="text-blue-500">M</span>
-				<span>M</span>
+	<aside class="group">
+		<section class="h-[4.5rem] py-4">
+			<router-link to="/" class="inline-block h-10 p-1.5 text-lg font-black">
+				<span>
+					<span class="text-blue-500">M</span>
+					<span>M</span>
+				</span>
 			</router-link>
 		</section>
 
-		<section class="flex flex-grow flex-col items-center gap-y-6">
+		<section class="flex-grow space-y-4">
 			<router-link to="/dashboard" class="link" active-class="active">
-				<home-icon class="h-6 w-6" />
+				<home-icon class="icon" />
 				<span class="link-title">Dashboard</span>
 			</router-link>
 			<router-link to="/member" class="link" active-class="active">
-				<heart-icon class="h-6 w-6" />
+				<heart-icon class="icon" />
 				<span class="link-title">Medlemmar</span>
 			</router-link>
 			<router-link to="/invoice" class="link" active-class="active">
-				<currency-dollar-icon class="h-6 w-6" />
+				<currency-dollar-icon class="icon" />
 				<span class="link-title">Fakturering</span>
 			</router-link>
 			<router-link to="/membership" class="link" active-class="active">
-				<bolt-icon class="h-6 w-6" />
+				<bolt-icon class="icon" />
 				<span class="link-title">Medlemskap & Tillval</span>
 			</router-link>
 			<router-link to="/report" class="link" active-class="active">
-				<arrow-trending-up-icon class="h-6 w-6" />
+				<arrow-trending-up-icon class="icon" />
 				<span class="link-title">Rapporter</span>
 			</router-link>
-			<hr class="w-4" />
+			<hr class="mx-auto w-1/2 transition-all group-hover:mx-0 group-hover:w-full" />
 		</section>
 
-		<section class="grid h-[4.5rem] place-items-center">
+		<section class="h-[4.5rem] py-4">
 			<router-link to="/setting" class="link" active-class="active">
-				<cog-icon class="h-6 w-6" />
+				<cog-icon class="icon" />
 				<span class="link-title">Inställningar</span>
 			</router-link>
 		</section>
@@ -53,20 +55,28 @@ import {
 
 <style scoped lang="postcss">
 aside {
-	@apply hover:min-w-72 hover:px-4;
+	@apply fixed z-50 w-[4.5rem] overflow-hidden px-4;
+	@apply inset-y-0 flex flex-col space-y-6 bg-white text-gray-800;
+
+	@apply transition-all hover:w-64;
 }
 
 .link {
-	@apply inline-block h-10 w-10;
-	@apply grid items-center justify-center rounded-md;
+	@apply inline-block rounded-md;
+	@apply flex h-10 items-center gap-4;
+
+	@apply transition hover:bg-blue-50;
 }
 
-.active {
-	@apply bg-blue-200 text-blue-500;
+.icon {
+	@apply min-h-10 min-w-10 rounded-md p-2;
 }
 
 .link-title {
-	@apply hidden;
-	@apply group-hover:inline;
+	@apply whitespace-nowrap;
+}
+
+.active {
+	@apply bg-blue-100 text-blue-500;
 }
 </style>

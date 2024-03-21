@@ -23,11 +23,7 @@
         @apply text-left;
     }
 
-    h1, h2, h3, h4, h5, h6, p, th, td, dt, dd, label, span, a {
-        @apply text-gray-800;
-    }
-
     hr {
-        @apply h-0.5 bg-gray-300
+        @apply h-[1px] bg-gray-300
     }
 }

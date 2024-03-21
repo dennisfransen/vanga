@@ -4,11 +4,10 @@ import AppSideMenu from '@/components/AppSideMenu.vue'
 </script>
 
 <template>
-	<div class="flex">
-		<app-side-menu />
-		<div class="flex-grow">
-			<app-header />
-			<router-view />
-		</div>
+	<app-side-menu />
+
+	<div class="relative left-[4.5rem]">
+		<app-header />
+		<router-view />
 	</div>
 </template>
