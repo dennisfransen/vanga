@@ -1,11 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {
+	HomeIcon,
+	HeartIcon,
+	CurrencyDollarIcon,
+	BoltIcon,
+	ArrowTrendingUpIcon,
+	CogIcon,
+} from '@heroicons/vue/24/outline'
+</script>
 
 <template>
 	<aside class="flex min-h-screen min-w-72 flex-col bg-white">
 		<div class="flex h-20 items-center py-4 pl-8 pr-4 text-lg font-bold tracking-wider">
 			<router-link to="/">
-				<span class="text-blue-500">Vanga</span>
-				<span>Members</span>
+				<span class="text-blue-500">M</span>
+				<span>M</span>
 			</router-link>
 		</div>
 
@@ -14,31 +23,31 @@
 				<ul>
 					<li>
 						<router-link to="/dashboard" class="link" active-class="active">
-							<span class="material-symbols-rounded">scatter_plot</span>
+							<home-icon class="h-6 w-6" />
 							<span>Översikt</span>
 						</router-link>
 					</li>
 					<li>
 						<router-link to="/member" class="link" active-class="active">
-							<span class="material-symbols-rounded">favorite</span>
+							<heart-icon class="h-6 w-6" />
 							<span>Medlemmar</span>
 						</router-link>
 					</li>
 					<li>
 						<router-link to="/invoice" class="link" active-class="active">
-							<span class="material-symbols-rounded">trending_up</span>
+							<currency-dollar-icon class="h-6 w-6" />
 							<span>Fakturering</span>
 						</router-link>
 					</li>
 					<li>
 						<router-link to="/membership" class="link" active-class="active">
-							<span class="material-symbols-rounded">done</span>
+							<bolt-icon class="h-6 w-6" />
 							<span>Medlemskap</span>
 						</router-link>
 					</li>
 					<li>
 						<router-link to="/report" class="link" active-class="active">
-							<span class="material-symbols-rounded">equalizer</span>
+							<arrow-trending-up-icon class="h-6 w-6" />
 							<span>Rapporter</span>
 						</router-link>
 					</li>
@@ -76,7 +85,7 @@
 			<ul class="w-full">
 				<li>
 					<router-link to="/settings" class="link" active-class="active">
-						<span class="material-symbols-rounded">settings</span>
+						<cog-icon class="h-6 w-6" />
 						<span>Inställningar</span>
 					</router-link>
 				</li>

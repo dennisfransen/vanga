@@ -4,11 +4,7 @@ addRoutes([
 	{
 		path: '/membership',
 		name: 'membership-index',
-		components: {
-			default: () => import('@/modules/membership/views/MembershipIndex.vue'),
-			MainMenu: () => import('@/components/MainMenu.vue'),
-			LeftSidebar: () => import('@/components/LeftSidebar.vue'),
-		},
+		component: () => import('@/modules/membership/views/MembershipIndex.vue'),
 		meta: { title: 'Medlemskap' },
 	},
 ])

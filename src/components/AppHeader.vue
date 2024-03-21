@@ -1,14 +1,16 @@
+<script setup lang="ts">
+import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline'
+</script>
+
 <template>
 	<header class="border-b bg-white">
 		<div class="flex h-20 items-center justify-between pl-4 pr-8">
 			<div class="relative">
 				<label for="search" class="hidden">Sök</label>
 				<input type="search" placeholder="Sök..." class="w-full border-none pl-10" />
-				<span
-					class="material-symbols-rounded absolute left-0 top-1/2 -translate-y-1/2 text-gray-400"
-				>
-					search
-				</span>
+				<magnifying-glass-icon
+					class="container absolute left-0 top-1/2 h-6 w-6 -translate-y-1/2 bg-red-500 text-gray-400"
+				/>
 			</div>
 
 			<nav class="flex items-center gap-6">

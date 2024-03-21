@@ -22,7 +22,7 @@ export function addRoutes(routeRecords: RouteRecordRaw[]) {
 
 router.beforeEach((to) => {
 	if (to.meta?.title) {
-		document.title = `VMembers - ${to.meta.title.toString()}`
+		document.title = `MM - ${to.meta.title.toString()}`
 	}
 })
 
