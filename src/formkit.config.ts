@@ -1,47 +1,15 @@
 import { sv } from '@formkit/i18n'
+import theme from '@/formkit.theme.config'
 import { defaultConfig } from '@formkit/vue'
-
-const legends = ['checkbox_multi', 'radio_multi', 'repeater', 'transferlist']
-
-function addAsteriskPlugin(node: any) {
-	if (['button', 'submit', 'hidden', 'group', 'list', 'meta'].includes(node.props.type)) return
-
-	node.on('created', () => {
-		const legendOrLabel = legends.includes(
-			`${node.props.type}${node.props.options ? '_multi' : ''}`,
-		)
-			? 'legend'
-			: 'label'
-
-		if (node.props.definition.schemaMemoKey) {
-			node.props.definition.schemaMemoKey += `${node.props.options ? '_multi' : ''}_add_asterisk`
-		}
-
-		const schemaFn = node.props.definition.schema
-		node.props.definition.schema = (sectionsSchema: any = {}) => {
-			sectionsSchema[legendOrLabel] = {
-				children: [
-					'$label',
-					{
-						$el: 'span',
-						if: '$state.required',
-						attrs: {
-							class: '$classes.asterisk',
-						},
-						children: [' *'],
-					},
-				],
-			}
-
-			return schemaFn(sectionsSchema)
-		}
-	})
-}
+import { addAsteriskPlugin } from '@/formkit.plugin.config'
 
 const config = defaultConfig({
 	plugins: [addAsteriskPlugin],
 	locales: { sv },
 	locale: 'sv',
+	config: {
+		classes: theme,
+	},
 })
 
 export default config

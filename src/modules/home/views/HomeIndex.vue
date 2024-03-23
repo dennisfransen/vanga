@@ -52,6 +52,14 @@ const test = ref('')
 					id="class"
 					placeholder="Select a class"
 					:options="['Warrior', 'Mage', 'Assassin']"
+					validation="required"
+					help="Lägg till ditt förnamn"
+				/>
+
+				<FormKit
+					type="submit"
+					label="Checkout my label"
+					help="You can use the label prop."
 				/>
 			</div>
 		</FormKit>
