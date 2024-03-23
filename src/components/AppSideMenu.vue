@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import {
-	HomeIcon,
-	HeartIcon,
-	CurrencyDollarIcon,
-	BoltIcon,
 	ArrowTrendingUpIcon,
+	BoltIcon,
 	CogIcon,
+	CurrencyDollarIcon,
+	HeartIcon,
+	HomeIcon,
 } from '@heroicons/vue/24/outline'
 </script>
 
@@ -53,6 +53,6 @@ import {
 }
 
 .active {
-	@apply bg-blue-100 text-blue-500;
+	@apply bg-blue-200 text-blue-500;
 }
 </style>

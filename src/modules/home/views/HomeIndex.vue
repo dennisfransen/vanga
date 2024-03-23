@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const test = ref('')
+</script>
+
 <template>
-	<main class="p-4">
+	<main class="space-y-10">
 		<div class="prose">
 			<h2>This is an home index</h2>
 			<p>
@@ -8,5 +14,46 @@
 				At ducimus ea ex, expedita neque obcaecati sequi?
 			</p>
 		</div>
+
+		<FormKit type="form">
+			<div class="space-y-4">
+				<FormInput
+					id="firstname"
+					label="Förnamn"
+					type="text"
+					v-model="test"
+					placeholder="Placeholder..."
+					validation="required|not:Admin"
+				/>
+
+				<FormInput
+					id="firstname"
+					label="Förnamn"
+					type="text"
+					v-model="test"
+					placeholder="Placeholder..."
+					validation="required|not:Admin"
+				/>
+
+				<FormInput
+					id="firstname"
+					label="Förnamn"
+					type="text"
+					v-model="test"
+					placeholder="Placeholder..."
+					validation="required|not:Admin"
+					help="Lägg till ditt förnamn"
+				/>
+
+				<FormKit
+					type="select"
+					label="Class"
+					name="class"
+					id="class"
+					placeholder="Select a class"
+					:options="['Warrior', 'Mage', 'Assassin']"
+				/>
+			</div>
+		</FormKit>
 	</main>
 </template>
